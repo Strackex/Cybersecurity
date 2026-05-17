@@ -1,5 +1,7 @@
 # Cybersecurity
-hecking progress
+
+hecking progress-
+
 [![whoamilab](https://lab.whoamitang.com/badge/strack63.png)](https://lab.whoamitang.com/user/strack63)
 
 
@@ -16,5 +18,4 @@ hecking progress
 
 
 
-
-Added lab badge
+Lab Badge
