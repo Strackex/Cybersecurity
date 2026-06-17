@@ -1,4 +1,4 @@
-# Cybersecurity Learning Roadmap
+# Cybersecurity Roadmap Intermediate Foundationn
 
 ## 1. Networking Fundamentals
 ### 1.1 OSI Model
