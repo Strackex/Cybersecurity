@@ -58,3 +58,26 @@ As data travels down the TCP/IP stack from your application to the wire, each la
 3.  **Internet Layer:** Adds IP Header (Source IP, Destination IP) -> Packet
 4.  **Network Access Layer:** Adds MAC Address Header -> Frame
 5.  **The Wire:** Bits transmitted over copper/fiber/waves (`10101100`)
+
+### DNS (Domain Name System) - Port 53 (UDP/TCP)
+
+- **Core Function:** Translates human-readable domain names (`target.ctf`) to machine-readable IP addresses (`38.242.206.53`).
+    
+- The Resolution Flow:
+    
+    1. **Browser Cache:** Checks if it already knows the IP.
+        
+    2. **Recursive Resolver (ISP/Router):** Asks around if not cached.
+        
+    3. **Root Servers (`.`):** Directs resolver to the Top-Level Domain (TLD) server (like `.com`, `.org`, `.in`).
+        
+    4. **TLD Authoritative Servers:** Provides the final authoritative IP back to the client.
+        
+- **The Security Link (DNS Spoofing / Cache Poisoning):** Attackers inject fake IP mappings into a DNS server's cache. When a victim requests a legitimate site, the poisoned server sends them to an attacker-controlled phishing host.
+    
+
+### DHCP (Dynamic Host Configuration Protocol) - Ports 67/68 (UDP)
+
+- **Core Function:** Automatically assigns temporary IP addresses, subnet masks, default gateways, and DNS servers to devices when they connect to a network.
+
+- **The Security Link (DHCP Starvation):** Attackers use automated tools to spoof thousands of fake MAC addresses, requesting every single available IP in the DHCP scope. This exhausts the pool, causing a Denial of Service (DoS) where legitimate users can no longer obtain network access.
