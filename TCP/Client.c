@@ -8,16 +8,22 @@ void chatLoop(SOCKET serverFD);
 int main(){
     SOCKET serverFD;
     WSADATA wsaData;
+    char ip[20];
 
     if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
         printf("WSAStartup Failed\n");
         return 1;
     }
+    printf("Enter IP\n");
+    fgets(ip,sizeof(ip),stdin);
+
+    ip[strcspn(ip, "\n")] = '\0'; 
+
 
     struct sockaddr_in serverAddr;
     serverAddr.sin_family = AF_INET;
     serverAddr.sin_port = htons(8080);
-    inet_pton(AF_INET, "127.0.0.1", &serverAddr.sin_addr);
+    inet_pton(AF_INET, ip, &serverAddr.sin_addr);
 
     serverFD = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if(serverFD != INVALID_SOCKET){
